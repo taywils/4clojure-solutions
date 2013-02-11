@@ -103,3 +103,6 @@
   (if (string? coll)
     (reduce str rem-dupes)
     rem-dupes)))
+
+;; http://www.4clojure.com/problem/31
+#(partition-by identity %)
