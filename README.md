@@ -1,4 +1,4 @@
 4clojure-solutions
 ==================
 
-My solutions to 4clojure problems
+A collection of my solutions to the problems on [http://www.4clojure.com](http://www.4clojure.com)
