@@ -96,3 +96,10 @@
   (clojure.string/upper-case
   	(apply str 
        (re-seq #"[A-Z]" x))))
+
+;; http://www.4clojure.com/problem/30
+(fn [coll]
+  (let [rem-dupes (map (fn [item] (first item)) (partition-by identity coll))]
+  (if (string? coll)
+    (reduce str rem-dupes)
+    rem-dupes)))
