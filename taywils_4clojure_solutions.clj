@@ -130,3 +130,17 @@
         nums (flatten (list x y more))
         ]
     (reduce mini-max nums)))
+
+;; http://www.4clojure.com/problem/39
+;; Solution 1: Works but is not very Clojure-ish
+;; This is just me applying C-style logic to the problem i.e thinking in terms of loops
+(fn [l1 l2]
+  (loop [acc [] l1 l1 l2 l2]
+    (if (or (empty? l1) (empty? l2))
+      acc
+      (recur (conj acc (first l1) (first l2))
+             (rest l1)
+             (rest l2)))))
+;; Solution 2: Fck Yeah list transformations
+#(mapcat list %1 %2)
+
