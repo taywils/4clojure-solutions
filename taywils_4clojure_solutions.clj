@@ -106,3 +106,27 @@
 
 ;; http://www.4clojure.com/problem/31
 #(partition-by identity %)
+
+;; http://www.4clojure.com/problem/34
+(fn [x y]
+  (loop [x x acc '()]
+    (if (= x y)
+      (reverse acc)
+      (recur (inc x) (conj acc  x)))))
+
+;; http://www.4clojure.com/problem/35
+7
+
+;; http://www.4clojure.com/problem/36
+[x 7 y 3 z 1]
+
+;; http://www.4clojure.com/problem/37
+"ABC"
+
+;; http://www.4clojure.com/problem/38
+(fn [x y & more]
+  (let [
+        mini-max (fn [x y] (cond (nil? y) x (nil? x) y :else (if (> x y) x y)))
+        nums (flatten (list x y more))
+        ]
+    (reduce mini-max nums)))
