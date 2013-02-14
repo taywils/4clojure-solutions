@@ -144,3 +144,12 @@
 ;; Solution 2: Fck Yeah list transformations
 #(mapcat list %1 %2)
 
+;; http://www.4clojure.com/problem/40
+;; Solution 1: Using some weird work around to achieve what is essentially "drop-last"
+(fn [sym coll]
+  (let [tk (- (* 2 (count coll)) 1)]
+  (take tk
+   (interleave coll (repeat (count coll) sym)))))
+;; Solution 2: Now using "drop-last"
+(fn [sym coll]
+  (drop-last (interleave coll (repeat sym))))
