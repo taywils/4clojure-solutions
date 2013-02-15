@@ -153,3 +153,7 @@
 ;; Solution 2: Now using "drop-last"
 (fn [sym coll]
   (drop-last (interleave coll (repeat sym))))
+
+;; http://www.4clojure.com/problem/42
+(fn [n]
+  (reduce * (range 1 (+ 1 n))))
