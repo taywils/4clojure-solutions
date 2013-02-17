@@ -157,3 +157,21 @@
 ;; http://www.4clojure.com/problem/42
 (fn [n]
   (reduce * (range 1 (+ 1 n))))
+
+;; http://www.4clojure.com/problem/44
+;; Solution 1: Very ugly and non clojuric
+(fn [n c]
+  (loop [
+         c c
+         n n
+         rotp (fn [coll]
+                (let [f (first coll) r (rest coll)]
+                  (concat r (list f))))
+         rotn (fn [coll]
+                (let [l (last coll) s (count coll) p (take (- s 1) coll)]
+                (concat (list l) p)))
+         ]
+    (cond
+     (= n 0) c
+     (> n 0) (recur (rotp c) (dec n) rotp rotn)
+     (< n 0) (recur (rotn c) (inc n) rotp rotn))))
